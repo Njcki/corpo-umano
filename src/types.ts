@@ -1,0 +1,84 @@
+export type SystemId =
+  | 'scheletrico'
+  | 'muscolare'
+  | 'circolatorio'
+  | 'nervoso'
+  | 'respiratorio'
+  | 'digestivo'
+  | 'urinario'
+  | 'linfatico'
+  | 'tegumentario'
+  | 'organi';
+
+export type SpeciesId = 'uomo' | 'cane';
+export type SexId = 'maschio' | 'femmina';
+
+export interface SystemInfo {
+  id: SystemId;
+  nome: string;
+  colore: number;
+  descrizione: string;
+}
+
+export interface AnatomyPart {
+  id: string;
+  nome: string;
+  sistema: SystemId;
+  descrizione: string;
+  latino?: string;
+  en?: string;
+  bp?: string;
+  fma?: string;
+}
+
+export interface PartRuntime {
+  part: AnatomyPart;
+  mesh: import('three').Mesh;
+  restPosition: import('three').Vector3;
+  restQuaternion: import('three').Quaternion;
+  restScale: import('three').Vector3;
+  /** Filled dynamically when aligning into the invisible grid */
+  alignTarget: import('three').Vector3;
+  /** Uniform display scale while in grid mode (1 at rest) */
+  alignScale: number;
+  /** Invisible slightly-larger sphere used only for forgiving raycasts */
+  pickHelper?: import('three').Mesh;
+}
+
+export interface CatalogPartRecord {
+  id: string;
+  bp: string;
+  fma: string;
+  nome: string;
+  en: string;
+  latino: string;
+  sistema: SystemId;
+  descrizione: string;
+  vertexCount: number;
+  indexCount: number;
+  posOffset: number;
+  posBytes: number;
+  idxOffset: number;
+  idxBytes: number;
+  posEncoding: string;
+  idxEncoding: string;
+  indexSize: number;
+  quantMin: [number, number, number];
+  quantScale: [number, number, number];
+}
+
+export interface AnatomyCatalog {
+  source: string;
+  sourceUrl: string;
+  license: string;
+  attribution: string;
+  version: string;
+  count: number;
+  countsBySystem: Partial<Record<SystemId, number>>;
+  bin: string;
+  baseUrl?: string;
+  species?: string;
+  sex?: string;
+  notes?: string;
+  parts: CatalogPartRecord[];
+}

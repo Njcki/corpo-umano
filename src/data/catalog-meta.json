@@ -1,0 +1,18 @@
+{
+  "count": 2234,
+  "countsBySystem": {
+    "digestivo": 119,
+    "nervoso": 101,
+    "muscolare": 313,
+    "organi": 324,
+    "scheletrico": 245,
+    "circolatorio": 1015,
+    "respiratorio": 102,
+    "tegumentario": 1,
+    "urinario": 14
+  },
+  "attribution": "BodyParts3D, (c) The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+  "license": "CC BY-SA 2.1 JP",
+  "source": "BodyParts3D",
+  "notes": "Tassonomia: strutture oculari riclassificate da organi→nervoso per allineamento con Donna. Copertura = intero IS-A BodyParts3D 4.0 (2234 mesh); niente linfatico/tiroide ghiandolare nel dataset IS-A."
+}
