@@ -25,3 +25,6 @@ dist-ssr
 tmp/
 tunnel.log
 .cache/
+
+# Local / WIP captures — not for GitHub
+screenshots/
